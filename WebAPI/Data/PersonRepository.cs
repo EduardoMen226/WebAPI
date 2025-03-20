@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebAPI.Entities;
+﻿using WebAPI.Entities;
+using WebAPI.Interface;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Model;
 
 namespace WebAPI.Data
 {
-    public class PersonRepository : ICustomerRepository
+    public class PersonRepository : IPersonRepository
     {
         private readonly AppDbContext _context;
 
@@ -25,9 +26,5 @@ namespace WebAPI.Data
             await _context.SaveChangesAsync();
             return person;
         }
-    }
-
-    public interface ICustomerRepository
-    {
     }
 }

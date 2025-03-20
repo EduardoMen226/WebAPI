@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Data;
 using WebAPI.Entities;
+using WebAPI.Interface;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
                 errorNumbersToAdd: null);
         }));
 
-//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 var app = builder.Build();
 
